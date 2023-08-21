@@ -8,6 +8,7 @@ import Welcome from './pages/Welcome';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Agreement from './pages/Agreement';
 import QuestionOne from './pages/QuestionOne';
+import Greetings from './pages/Greetings';
 
 function App(): JSX.Element {
 
@@ -33,6 +34,7 @@ function App(): JSX.Element {
           <Stack.Screen name="welcome" component={Welcome} />
           <Stack.Screen name="agreement" component={Agreement} />
           <Stack.Screen name="questionone" component={QuestionOne} />
+          <Stack.Screen name="greetings" component={Greetings} />
         </Stack.Navigator>
       </NavigationContainer>
       </>

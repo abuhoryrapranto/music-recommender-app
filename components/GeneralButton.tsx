@@ -13,6 +13,7 @@ type Props = {
     width?: number,
     color?: string
 }
+
 export default function GeneralButton(props: Props) {
 
     return (

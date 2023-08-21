@@ -1,52 +1,327 @@
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StatusBar, ScrollView} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { RadioButton, Provider as PaperProvider } from 'react-native-paper';
+import GeneralButton from '../components/GeneralButton';
 
 export default function QuestionOne({navigation}: {navigation: any}) {
-    
-    const [selectedValue, setSelectedValue] = React.useState('');
+
+    const [selectedValue1, setSelectedValue1] = React.useState('');
+    const [selectedValue2, setSelectedValue2] = React.useState('');
+    const [selectedValue3, setSelectedValue3] = React.useState('');
+    const [selectedValue4, setSelectedValue4] = React.useState('');
+    const [selectedValue5, setSelectedValue5] = React.useState('');
+    const [selectedValue6, setSelectedValue6] = React.useState('');
+    const [selectedValue7, setSelectedValue7] = React.useState('');
+    const [selectedValue8, setSelectedValue8] = React.useState('');
+    const [selectedValue9, setSelectedValue9] = React.useState('');
+    const [selectedValue10, setSelectedValue10] = React.useState('');
+
+    const data = {
+        values: [
+            selectedValue1 == '' ? 3 : parseInt(selectedValue1),
+            selectedValue2 == '' ? 3 : parseInt(selectedValue2),
+            selectedValue3 == '' ? 3 : parseInt(selectedValue3),
+            selectedValue4 == '' ? 3 : parseInt(selectedValue4),
+            selectedValue5 == '' ? 3 : parseInt(selectedValue5),
+            selectedValue6 == '' ? 3 : parseInt(selectedValue6),
+            selectedValue7 == '' ? 3 : parseInt(selectedValue7),
+            selectedValue8 == '' ? 3 : parseInt(selectedValue8),
+            selectedValue9 == '' ? 3 : parseInt(selectedValue9),
+            selectedValue10 == '' ? 3 : parseInt(selectedValue10),
+        ]
+    }
+
+    const save = () => {
+
+        const items = {
+            value: '40',
+            greetings: 'Great Job'
+        }
+        navigation.navigate('greetings', { items });
+        console.log(data);
+    }
 
   return (
     <>
     <SafeAreaView style={styles.container}>
+    <StatusBar backgroundColor="#FF603E" barStyle="light-content" />
       <View style={{marginLeft: 10, marginRight: 10}}>
         <TouchableOpacity style={{flexDirection: "row", alignItems: "center"}} onPress={() => navigation.goBack()} >
                 <MaterialIcons name="arrow-back-ios" color="white" size={20}/>
                 <Text style={{fontSize: 17, color: "white"}}>First Phase - 10 Questions</Text>
         </TouchableOpacity>
-
+        <ScrollView contentContainerStyle={{ paddingBottom: 50}}>
         <View style={{marginTop: 10}}>
-            <Text style={{color: "white", fontSize: 20}}>Question 1:</Text>
-
             <View>
-            <RadioButton.Group onValueChange={newValue => setSelectedValue(newValue)} value={selectedValue}>
-                <View>
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <RadioButton value="first" />
-                        <Text>Strogly Disagree</Text>
+                <Text style={{color: "white", fontSize: 20}}>Question 1: I am the life of the party. </Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue1(newValue)} value={selectedValue1}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
                     </View>
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <RadioButton value="second" />
-                        <Text>Disagree</Text>
-                    </View>
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <RadioButton value="third" />
-                        <Text>Neutral</Text>
-                    </View>
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <RadioButton value="forth" />
-                        <Text>Agree</Text>
-                    </View>
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <RadioButton value="fifth" />
-                        <Text>Disagree</Text>
-                    </View>
-                </View>
                 </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 2: I don't talk a lot.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue2(newValue)} value={selectedValue2}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 3: I feel comfortable around people.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue3(newValue)} value={selectedValue3}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 4: I keep in the background.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue4(newValue)} value={selectedValue4}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 5: I start conversations.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue5(newValue)} value={selectedValue5}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 6: I have little to say.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue6(newValue)} value={selectedValue6}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 7: I talk to a lot of different people at parties.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue7(newValue)} value={selectedValue7}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 8: I don't like to draw attention to myself.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue8(newValue)} value={selectedValue8}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 9: I don't mind being the center of attention.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue9(newValue)} value={selectedValue9}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+
+                <Text style={{color: "white", fontSize: 20}}>Question 10: I am quiet around strangers.</Text>
+                <RadioButton.Group onValueChange={newValue => setSelectedValue10(newValue)} value={selectedValue10}>
+                    <View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="1" />
+                            <Text style={styles.radioText}>Strogly Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="2" />
+                            <Text style={styles.radioText}>Disagree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="3" />
+                            <Text style={styles.radioText}>Neutral</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="4" />
+                            <Text style={styles.radioText}>Agree</Text>
+                        </View>
+                        <View style={{flexDirection: "row", alignItems: "center"}}>
+                            <RadioButton value="5" />
+                            <Text style={styles.radioText}>Strogly Agree</Text>
+                        </View>
+                    </View>
+                </RadioButton.Group>
+                
             </View>
         </View>
+
+        <View style={{marginTop: 20}}>
+            <GeneralButton name='Next' backgroudColor='#0FE38A' padding={10} color='white' borderRadius={10} fontSize={18} click={() => save()} />
+        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
     </>
@@ -76,6 +351,11 @@ const styles = StyleSheet.create({
     logoImage: {
         height: 180,
         width: 180,
+    },
+
+    radioText: {
+        fontSize: 17,
+        color: 'black'
     }
 
 })
