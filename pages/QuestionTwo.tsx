@@ -13,6 +13,7 @@ import {RadioButton, Provider as PaperProvider} from 'react-native-paper';
 import GeneralButton from '../components/GeneralButton';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ProgressBar } from 'react-native-paper';
 
 export default function QuestionTwo({navigation}: {navigation: any}) {
   const [selectedValue1, setSelectedValue1] = React.useState('');
@@ -76,14 +77,24 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
             onPress={() => navigation.goBack()}>
             <MaterialIcons
               name="arrow-back-ios"
-              color={Colors.darker}
+              color={Colors.darker} 
               size={20}
+
             />
-            <Text style={{fontSize: 17, color: Colors.darker}}>
-              Second Phase - 10 Questions
+            <Text style={{fontSize: 17, color: Colors.darker, fontWeight:'500'}}>
+              Neuroticism - 10 Questions
             </Text>
           </TouchableOpacity>
-          <ScrollView contentContainerStyle={{paddingBottom: 50}}>
+
+          <View style={{marginTop: 30}}>
+            <ProgressBar progress={0.20} color="#8E44AD" style={{height: 7, backgroundColor: "white"}} />
+          </View>
+
+          <TouchableOpacity style={{marginTop: 10}} onPress={() => save()}>
+            <Text style={{textAlign: 'right', fontSize: 17, color: Colors.darker, fontWeight:'700'}}>Skip</Text>
+          </TouchableOpacity>
+
+          <ScrollView contentContainerStyle={{paddingBottom: 110}}>
             <View style={{marginTop: 10}}>
               <View>
                 <Text style={{color: '#8E44AD', fontSize: 20}}>
@@ -95,7 +106,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -111,7 +122,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -125,7 +136,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -141,7 +152,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -155,7 +166,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -171,7 +182,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -185,7 +196,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -201,7 +212,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -215,7 +226,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -231,7 +242,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -245,7 +256,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -261,7 +272,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -275,7 +286,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -291,7 +302,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -305,7 +316,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -321,7 +332,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -335,7 +346,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -351,7 +362,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -365,7 +376,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -381,7 +392,7 @@ export default function QuestionTwo({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>

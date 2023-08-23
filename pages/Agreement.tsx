@@ -19,10 +19,7 @@ export default function Agreement({navigation}: {navigation: any}) {
 
         <View style={{justifyContent: "center", alignItems: "center", marginTop: 80}}>
             <Text style={{color: "#ff8fb8", fontSize: 22}}>
-                We take an assessment{'\n'}
-                which is consist of 50 questions{'\n'}
-                for detect your{'\n'}
-                personality profile
+            Taking a 50-question assessment to determine your personality profile and recommend music tracks
             </Text>
         </View>
 

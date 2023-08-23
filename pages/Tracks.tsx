@@ -4,12 +4,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios, { all } from 'axios';
 import { FlatList } from 'react-native-gesture-handler';
 import GeneralButton from '../components/GeneralButton';
+import LoadingSppiner from '../components/LoadingSppiners';
 
 export default function Tracks() {
 
   const [allTracks, setAllTracks] = useState<any[]>([]);
 
+  const [loading, setLoading] = useState(false);
+
   const getTracks = async () => {
+
+    setLoading(true);
 
     setAllTracks([]);
 
@@ -28,6 +33,7 @@ export default function Tracks() {
 
       })
       .catch(function (error) {
+          setLoading(false);
           console.log(error);
       });
     }
@@ -56,10 +62,14 @@ export default function Tracks() {
         };
 
         setAllTracks(prev => [...prev, song])
+        setLoading(false);
         console.log(song)
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      setLoading(false);
+      console.log(err)
+    })
 
   }
 
@@ -98,7 +108,29 @@ export default function Tracks() {
       </View>
 
       <View style={{marginBottom: 20, justifyContent: 'center', alignItems: 'center'}}>
-          <GeneralButton name='Get New Tracks' color='black' padding={10} borderRadius={10} fontSize={20} backgroudColor='#0FE38A' width={300} click={() => getTracks()} />
+              {
+                loading == false ? 
+                <GeneralButton 
+                    name='Get Tracks' 
+                    color='black' 
+                    padding={10} 
+                    borderRadius={10} 
+                    fontSize={20} 
+                    backgroudColor='#0FE38A' 
+                    width={300} 
+                    click={() => getTracks()} 
+                /> : 
+
+                  <LoadingSppiner name='Loading'
+                    backgroudColor="#0FE38A"
+                    padding={10}
+                    color="black"
+                    borderRadius={10}
+                    fontSize={18}
+                    width={300}
+                  />
+
+              }
       </View>
 
     </SafeAreaView>

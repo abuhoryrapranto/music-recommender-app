@@ -6,6 +6,7 @@ import { BarChart } from 'react-native-chart-kit';
 import Entypo from 'react-native-vector-icons/Entypo';
 import GeneralButton from '../components/GeneralButton';
 import axios from 'axios';
+import LoadingSppiner from '../components/LoadingSppiners';
 
 export default function Result({navigation}: {navigation: any}) {
 
@@ -15,6 +16,8 @@ export default function Result({navigation}: {navigation: any}) {
     const [agreeableness, setAgreeableness] = useState(0);
     const [neuroticism, setNeuroticism] = useState(0);
     const [values, setValues] = useState<number[]>([]);
+
+    const [loading, setLoading] = useState(false);
 
     const calculateChartData = (numbers : any) => {
 
@@ -60,6 +63,8 @@ export default function Result({navigation}: {navigation: any}) {
 
     const getResult = async () => {
 
+        setLoading(true);
+
         AsyncStorage.removeItem('cluster');
 
         await axios.post('https://personality-ml.onrender.com/predict', {
@@ -70,13 +75,17 @@ export default function Result({navigation}: {navigation: any}) {
             AsyncStorage.setItem('cluster', response.data.data);
             if(response.data.data && response.status === 200) {
                 navigation.navigate('tracks');
+                setLoading(false);
             } 
             
             console.log(response.data.data);
         })
         .catch(function (error) {
+            setLoading(false);
             console.log(error);
         });
+
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -170,7 +179,31 @@ export default function Result({navigation}: {navigation: any}) {
             </View>
             </View>
             <View style={{marginBottom: 20, justifyContent: 'center', alignItems: 'center'}}>
-                <GeneralButton name='Get Tracks' color='black' padding={10} borderRadius={10} fontSize={20} backgroudColor='#0FE38A' width={300} click={() => getResult()} />
+                
+
+                {
+                loading == false ? 
+                <GeneralButton 
+                    name='Get Tracks' 
+                    color='black' 
+                    padding={10} 
+                    borderRadius={10} 
+                    fontSize={20} 
+                    backgroudColor='#0FE38A' 
+                    width={300} 
+                    click={() => getResult()} 
+                /> : 
+
+                  <LoadingSppiner name='Loading'
+                    backgroudColor="#0FE38A"
+                    padding={10}
+                    color="black"
+                    borderRadius={10}
+                    fontSize={18}
+                    width={300}
+                  />
+
+              }
             </View>
         </SafeAreaView>
     );

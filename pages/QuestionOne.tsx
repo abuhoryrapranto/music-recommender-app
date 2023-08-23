@@ -6,12 +6,14 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {RadioButton, Provider as PaperProvider} from 'react-native-paper';
 import GeneralButton from '../components/GeneralButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ProgressBar } from 'react-native-paper';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function QuestionOne({navigation}: {navigation: any}) {
   const [selectedValue1, setSelectedValue1] = React.useState('');
@@ -65,24 +67,29 @@ export default function QuestionOne({navigation}: {navigation: any}) {
     }
   };
 
-  // useEffect(() => {
-  //     getData();
-  // },[])
-
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="#FF603E" barStyle="light-content" />
+        <StatusBar backgroundColor="#C6A0F1" barStyle="light-content" />
         <View style={{marginLeft: 10, marginRight: 10}}>
           <TouchableOpacity
             style={{flexDirection: 'row', alignItems: 'center'}}
             onPress={() => navigation.goBack()}>
-            <MaterialIcons name="arrow-back-ios" color="white" size={20} />
-            <Text style={{fontSize: 17, color: 'white'}}>
-              First Phase - 10 Questions
+            <MaterialIcons name="arrow-back-ios" color={Colors.darker} size={20} />
+            <Text style={{fontSize: 17, color: Colors.darker, fontWeight:'500'}}>
+              Extraversion - 10 Questions
             </Text>
           </TouchableOpacity>
-          <ScrollView contentContainerStyle={{paddingBottom: 50}}>
+
+          <View style={{marginTop: 30}}>
+            <ProgressBar progress={0.1} color="#424AFF" style={{height: 7}} />
+          </View>
+
+          <TouchableOpacity style={{marginTop: 10}} onPress={() => save()}>
+            <Text style={{textAlign: 'right', fontSize: 17, color: Colors.darker, fontWeight:'700'}}>Skip</Text>
+          </TouchableOpacity>
+          
+          <ScrollView contentContainerStyle={{paddingBottom: 110}}>
             <View style={{marginTop: 10}}>
               <View>
                 <Text style={{color: 'white', fontSize: 20}}>
@@ -94,7 +101,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -110,7 +117,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -124,7 +131,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -140,7 +147,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -154,7 +161,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -170,7 +177,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -184,7 +191,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -200,7 +207,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -214,7 +221,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -230,7 +237,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -244,7 +251,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -260,7 +267,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -274,7 +281,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -290,7 +297,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -304,7 +311,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -320,7 +327,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -334,7 +341,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -350,7 +357,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -364,7 +371,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   <View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="1" />
-                      <Text style={styles.radioText}>Strogly Disagree</Text>
+                      <Text style={styles.radioText}>Strongly Disagree</Text>
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="2" />
@@ -380,7 +387,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                     </View>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                       <RadioButton value="5" />
-                      <Text style={styles.radioText}>Strogly Agree</Text>
+                      <Text style={styles.radioText}>Strongly Agree</Text>
                     </View>
                   </View>
                 </RadioButton.Group>
@@ -408,7 +415,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF603E',
+    backgroundColor: '#C6A0F1',
   },
 
   cardText: {
