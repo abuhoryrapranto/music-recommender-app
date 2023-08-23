@@ -2,12 +2,46 @@ import React from "react";
 import { Image, SafeAreaView, Text, View,StyleSheet } from "react-native";
 const LogoImage = require("../assets/images/musical-note.png")
 import GeneralButton from "../components/GeneralButton";
+import axios from "axios";
+const Buffer = require('buffer').Buffer;
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Welcome({navigation}: {navigation: any}) {
 
     const aggrementPage = () => {
+        getSpotifyAccessToken("59b69a4c4abc4969a77cd0f7491667d3", "a594822719d942d4a67a7376c32f74e2");
         navigation.navigate('agreement');
     }
+
+    async function getSpotifyAccessToken(clientId : string, clientSecret: string) {
+
+        AsyncStorage.removeItem('access_token');
+
+        const authHeader = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+        
+        try {
+          const response = await axios.post(
+            'https://accounts.spotify.com/api/token',
+            'grant_type=client_credentials',
+            {
+              headers: {
+                'Authorization': `Basic ${authHeader}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+              }
+            }
+          );
+      
+          if (response.status === 200) {
+            console.log(response.data.access_token);
+            AsyncStorage.setItem('access_token', response.data.access_token);
+            //return response.data.access_token;
+          } else {
+            throw new Error('Failed to retrieve access token');
+          }
+        } catch (error) {
+          throw error;
+        }
+      }
 
     return (
         <SafeAreaView>

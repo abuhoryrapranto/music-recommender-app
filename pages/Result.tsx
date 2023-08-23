@@ -60,14 +60,18 @@ export default function Result({navigation}: {navigation: any}) {
 
     const getResult = async () => {
 
+        AsyncStorage.removeItem('cluster');
+
         await axios.post('https://personality-ml.onrender.com/predict', {
             values: values
         })
         .then(function (response) {
             
-            AsyncStorage.removeItem('cluster');
             AsyncStorage.setItem('cluster', response.data.data);
-            navigation.navigate('tracks');
+            if(response.data.data && response.status === 200) {
+                navigation.navigate('tracks');
+            } 
+            
             console.log(response.data.data);
         })
         .catch(function (error) {
