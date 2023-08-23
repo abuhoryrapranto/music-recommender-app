@@ -8,7 +8,13 @@ import Welcome from './pages/Welcome';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Agreement from './pages/Agreement';
 import QuestionOne from './pages/QuestionOne';
+import QuestionTwo from './pages/QuestionTwo';
+import QuestionThree from './pages/QuestionThree';
+import QuestionFour from './pages/QuestionFour';
+import QuestionFive from './pages/QuestionFive';
 import Greetings from './pages/Greetings';
+import Result from './pages/Result';
+import Tracks from './pages/Tracks';
 
 function App(): JSX.Element {
 
@@ -34,7 +40,13 @@ function App(): JSX.Element {
           <Stack.Screen name="welcome" component={Welcome} />
           <Stack.Screen name="agreement" component={Agreement} />
           <Stack.Screen name="questionone" component={QuestionOne} />
+          <Stack.Screen name="questiontwo" component={QuestionTwo} />
+          <Stack.Screen name="questionthree" component={QuestionThree} />
+          <Stack.Screen name="questionfour" component={QuestionFour} />
+          <Stack.Screen name="questionfive" component={QuestionFive} />
           <Stack.Screen name="greetings" component={Greetings} />
+          <Stack.Screen name="result" component={Result} />
+          <Stack.Screen name="tracks" component={Tracks} />
         </Stack.Navigator>
       </NavigationContainer>
       </>

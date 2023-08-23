@@ -24,7 +24,7 @@ export default function Greetings({navigation, route}: {navigation : any, route:
             
 
             <View style={{marginBottom: 20}}>
-                <GeneralButton name='Next' color='black' padding={10} borderRadius={10} fontSize={20} backgroudColor='#0FE38A' />
+                <GeneralButton name='Next' color='black' padding={10} borderRadius={10} fontSize={20} backgroudColor='#0FE38A' click={() => navigation.navigate(items.route)} />
             </View>
         </SafeAreaView>
     )
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     logoSection: {
         justifyContent: "center",
         alignItems: "center",
-        //paddingTop: 200
+        marginBottom: 100
     },
     logoImage: {
         height: 180,

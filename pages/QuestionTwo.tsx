@@ -6,14 +6,15 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {RadioButton, Provider as PaperProvider} from 'react-native-paper';
 import GeneralButton from '../components/GeneralButton';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function QuestionOne({navigation}: {navigation: any}) {
+export default function QuestionTwo({navigation}: {navigation: any}) {
   const [selectedValue1, setSelectedValue1] = React.useState('');
   const [selectedValue2, setSelectedValue2] = React.useState('');
   const [selectedValue3, setSelectedValue3] = React.useState('');
@@ -42,22 +43,22 @@ export default function QuestionOne({navigation}: {navigation: any}) {
 
   const save = async () => {
     const items = {
-      value: '40',
-      greetings: 'Great Job',
-      route: 'questiontwo',
+      value: '30',
+      greetings: 'Well Done',
+      route: 'questionthree',
     };
 
     try {
-      const value = await AsyncStorage.getItem('ext');
+      const value = await AsyncStorage.getItem('est');
 
       if (value !== null) {
-        await AsyncStorage.removeItem('ext');
+        await AsyncStorage.removeItem('est');
         const jsonValue = JSON.stringify(data.values);
-        await AsyncStorage.setItem('ext', jsonValue);
+        await AsyncStorage.setItem('est', jsonValue);
         navigation.navigate('greetings', {items});
       } else {
         const jsonValue = JSON.stringify(data.values);
-        await AsyncStorage.setItem('ext', jsonValue);
+        await AsyncStorage.setItem('est', jsonValue);
         navigation.navigate('greetings', {items});
       }
     } catch (err) {
@@ -65,28 +66,28 @@ export default function QuestionOne({navigation}: {navigation: any}) {
     }
   };
 
-  // useEffect(() => {
-  //     getData();
-  // },[])
-
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="#FF603E" barStyle="light-content" />
+        <StatusBar backgroundColor="#B0E57C" barStyle="light-content" />
         <View style={{marginLeft: 10, marginRight: 10}}>
           <TouchableOpacity
             style={{flexDirection: 'row', alignItems: 'center'}}
             onPress={() => navigation.goBack()}>
-            <MaterialIcons name="arrow-back-ios" color="white" size={20} />
-            <Text style={{fontSize: 17, color: 'white'}}>
-              First Phase - 10 Questions
+            <MaterialIcons
+              name="arrow-back-ios"
+              color={Colors.darker}
+              size={20}
+            />
+            <Text style={{fontSize: 17, color: Colors.darker}}>
+              Second Phase - 10 Questions
             </Text>
           </TouchableOpacity>
           <ScrollView contentContainerStyle={{paddingBottom: 50}}>
             <View style={{marginTop: 10}}>
               <View>
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 1: I am the life of the party.{' '}
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 1: I get stressed out easily.{' '}
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue1(newValue)}
@@ -115,8 +116,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 2: I don't talk a lot.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 2: I am relaxed most of the time.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue2(newValue)}
@@ -145,8 +146,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 3: I feel comfortable around people.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 3: I worry about things.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue3(newValue)}
@@ -175,8 +176,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 4: I keep in the background.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 4: I seldom feel blue.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue4(newValue)}
@@ -205,8 +206,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 5: I start conversations.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 5: I am easily disturbed.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue5(newValue)}
@@ -235,8 +236,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 6: I have little to say.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 6: I get upset easily.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue6(newValue)}
@@ -265,8 +266,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 7: I talk to a lot of different people at parties.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 7: I change my mood a lot.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue7(newValue)}
@@ -295,8 +296,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 8: I don't like to draw attention to myself.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 8: I have frequent mood swings.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue8(newValue)}
@@ -325,8 +326,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 9: I don't mind being the center of attention.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 9: I get irritated easily.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue9(newValue)}
@@ -355,8 +356,8 @@ export default function QuestionOne({navigation}: {navigation: any}) {
                   </View>
                 </RadioButton.Group>
 
-                <Text style={{color: 'white', fontSize: 20}}>
-                  Question 10: I am quiet around strangers.
+                <Text style={{color: '#8E44AD', fontSize: 20}}>
+                  Question 10: I often feel blue.
                 </Text>
                 <RadioButton.Group
                   onValueChange={newValue => setSelectedValue10(newValue)}
@@ -390,7 +391,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
             <View style={{marginTop: 20}}>
               <GeneralButton
                 name="Next"
-                backgroudColor="#0FE38A"
+                backgroudColor="#8E44AD"
                 padding={10}
                 color="white"
                 borderRadius={10}
@@ -408,7 +409,7 @@ export default function QuestionOne({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF603E',
+    backgroundColor: '#B0E57C',
   },
 
   cardText: {
