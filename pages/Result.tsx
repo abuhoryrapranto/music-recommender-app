@@ -65,7 +65,7 @@ export default function Result({navigation}: {navigation: any}) {
 
         setLoading(true);
 
-        AsyncStorage.removeItem('cluster');
+        await AsyncStorage.removeItem('cluster');
 
         await axios.post('https://personality-ml.onrender.com/predict', {
             values: values
